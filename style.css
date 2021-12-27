@@ -1,5 +1,7 @@
 body{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom right, #7c2fe0, #e0dd2f);
+}
+img{
+    width: 80%;
 }
