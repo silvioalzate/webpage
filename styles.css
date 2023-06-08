@@ -1,0 +1,116 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos del encabezado y la navegación */
+  
+  header {
+    background-color: #A437DB;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Estilos del slider de imágenes */
+  
+  .slider {
+    /* Agrega aquí los estilos para el slider */
+  }
+  
+  /* Estilos de los servicios destacados */
+  
+  .services {
+    /* Agrega aquí los estilos para los servicios destacados */
+  }
+  
+  /* Estilos de los testimonios */
+  
+  .testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .testimonial {
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .testimonial img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .testimonial p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* Estilos responsive */
+  
+  @media screen and (max-width: 768px) {
+    /* Estilos para dispositivos con ancho máximo de 768px */
+    
+    header {
+      padding: 10px;
+    }
+    
+    nav ul li {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .testimonial {
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Estilos para dispositivos con ancho máximo de 480px */
+    
+    .testimonial img {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .testimonial h3 {
+      font-size: 16px;
+    }
+    
+    .testimonial p {
+      font-size: 12px;
+    }
+  }
+  
