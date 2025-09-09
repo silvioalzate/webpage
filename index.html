@@ -120,15 +120,7 @@
                     </a>
                 </div>
                 <div id="generated-image-container" class="flex-1 w-full rounded-xl shadow-2xl overflow-hidden">
-                    <!-- Loading state for the image -->
-                    <div id="image-loader" class="text-center">
-                        <svg class="animate-spin h-10 w-10 text-secundario mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        <p class="mt-4 text-secundario">Generando imagen...</p>
-                    </div>
-                    <img id="generated-image" class="w-full h-full object-cover" alt="Silvio Alzate - Vibe Marketing y Automatizaciones"/>
+                    <img id="main-image" class="w-full h-full object-cover" src="vibe-marketing.png" alt="Silvio Alzate - Vibe Marketing y Automatizaciones"/>
                 </div>
             </div>
         </section>
@@ -201,9 +193,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.querySelector('nav');
             const homeSection = document.getElementById('home');
-            const imageContainer = document.getElementById('generated-image-container');
-            const imageElement = document.getElementById('generated-image');
-            const imageLoader = document.getElementById('image-loader');
+            const mainImage = document.getElementById('main-image');
 
             // Cambiar el color de fondo de la barra de navegación al hacer scroll
             window.addEventListener('scroll', () => {
@@ -236,59 +226,6 @@
                 contactForm.reset();
             });
 
-            // Generar y cargar imagen con la API de IA
-            async function generateAndDisplayImage() {
-                const imageUrl = await generateImage();
-                if (imageUrl) {
-                    imageLoader.style.display = 'none';
-                    imageElement.src = imageUrl;
-                    imageElement.classList.add('fade-in');
-                } else {
-                    imageLoader.style.display = 'none';
-                    imageContainer.innerHTML = `
-                        <div class="text-center p-4">
-                            <p class="text-naranja font-bold">Error al generar la imagen. Aquí tienes una imagen de respaldo.</p>
-                            <img src="https://placehold.co/800x600/22c55e/fdf8f5?text=Vibe+Marketing" class="w-full h-full object-cover rounded-xl" alt="Imagen de respaldo">
-                        </div>
-                    `;
-                }
-            }
-
-            async function generateImage() {
-                const prompt = "A determined man in his 30s, surrounded by vibrant data visualizations and abstract digital interfaces. The scene should embody the fusion of authentic marketing and business automation, in a minimalist and sophisticated style. Use a professional, clean aesthetic with a color palette of dark gray blue, green, and orange.";
-                const payload = {
-                    instances: {
-                        prompt: prompt
-                    },
-                    parameters: { "sampleCount": 1 }
-                };
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-                    if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
-                        return `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
-                    } else {
-                        throw new Error("Invalid response format from API.");
-                    }
-                } catch (error) {
-                    console.error("Error generating image:", error);
-                    return null;
-                }
-            }
-            
-            generateAndDisplayImage();
         });
     </script>
 </body>
