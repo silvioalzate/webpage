@@ -44,11 +44,34 @@
             <p class="text-lg sm:text-xl md:text-2xl text-principal mb-8">
                 Deja de luchar por cada idea de contenido. <br>Activa tu Capa y crea un <span class="font-bold">Oasis Digital</span> para tu negocio.
             </p>
-            <div class="relative inline-block w-48 sm:w-64 h-auto mx-auto mb-8">
-                <!-- Placeholder image for the Capa Rocket symbol -->
-                <img src="girl.png" alt="Símbolo de Emprendedores con Capa" class="w-full h-full object-contain rounded-xl shadow-lg">
-            </div>
         </header>
+         </section>
+
+        <!-- Call to Action Section -->
+        <section class="text-center mb-12">
+            <h3 class="font-titles text-2xl sm:text-3xl font-bold text-principal mb-4">
+                ¿Listo para <span class="text-secundario">Activar tu Capa</span>? 🚀
+            </h3>
+            <p class="text-lg mb-6">
+                Descarga ahora mismo esta automatización y únete a un futuro donde el marketing es una invitación a pertenecer, no una batalla por la atención.
+            </p>
+
+            <!-- Lead Capture Form -->
+            <form id="leadForm" class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- Added Name Input Field -->
+                <input type="text" placeholder="Tu Nombre" required
+                       class="w-full sm:w-auto p-3 text-lg border-2 border-principal rounded-xl focus:outline-none focus:ring-2 focus:ring-secundario focus:border-secundario transition-all duration-300">
+                <input type="email" placeholder="Tu Email para activar la capa" required
+                       class="w-full sm:w-auto p-3 text-lg border-2 border-principal rounded-xl focus:outline-none focus:ring-2 focus:ring-secundario focus:border-secundario transition-all duration-300">
+                <button type="submit"
+                        class="w-full sm:w-auto px-8 py-3 text-lg font-bold text-principal bg-secundario rounded-xl shadow-lg hover:shadow-xl transform transition-transform duration-300 hover:scale-105">
+                    ¡Sí, Quiero Mi Oasis Digital!
+                </button>
+            </form>
+            <div id="successMessage" class="hidden mt-4 p-4 rounded-xl bg-secundario text-principal font-bold transition-all duration-300">
+                ¡Gracias! Revisa tu email para activar tu Capa 🚀
+            </div>
+        </section>
 
         <!-- Problem Section -->
         <section class="mb-12 text-center md:text-left">
