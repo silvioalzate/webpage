@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activa tu Capa 🚀 - Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        /* Font rules based on the master prompt. Century Gothic and Codec Pro are not standard web fonts, 
+        so we'll use a close, common alternative for web compatibility. */
+        .font-titles {
+            font-family: 'Inter', sans-serif; /* A clear, modern sans-serif for titles */
+        }
+        .font-texts {
+            font-family: 'Inter', sans-serif; /* A readable, clean font for body text */
+        }
+
+        /* Custom color definitions for Tailwind */
+        :root {
+            --color-principal: #2e4057;
+            --color-secundario: #22c55e;
+            --color-acento: #fdf8f5;
+        }
+
+        .bg-principal { background-color: var(--color-principal); }
+        .text-principal { color: var(--color-principal); }
+        .bg-secundario { background-color: var(--color-secundario); }
+        .text-secundario { color: var(--color-secundario); }
+        .bg-acento { background-color: var(--color-acento); }
+        .text-acento { color: var(--color-acento); }
+    </style>
+</head>
+<body class="bg-acento font-texts antialiased text-principal">
+
+    <div class="container mx-auto px-4 py-8 md:px-6 lg:px-8 max-w-4xl">
+
+        <!-- Header and Hero Section -->
+        <header class="text-center mb-12">
+            <h1 class="font-titles text-4xl sm:text-5xl lg:text-6xl font-extrabold text-principal leading-tight mb-4 rounded-xl p-4">
+                ¿Atrapado en <span class="text-secundario">El Bucle del Hámster</span>? 🐭
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-principal mb-8">
+                Deja de luchar por cada idea de contenido. <br>Activa tu Capa y crea un <span class="font-bold">Oasis Digital</span> para tu negocio.
+            </p>
+            <div class="relative inline-block w-48 sm:w-64 h-auto mx-auto mb-8">
+                <!-- Placeholder image for the Capa Rocket symbol -->
+                <img src="girl.png" alt="Símbolo de Emprendedores con Capa" class="w-full h-full object-contain rounded-xl shadow-lg">
+            </div>
+        </header>
+
+        <!-- Problem Section -->
+        <section class="mb-12 text-center md:text-left">
+            <h2 class="font-titles text-3xl font-bold mb-4 text-principal">El Enemigo: El Marketing Zombi 🧟‍♂️</h2>
+            <p class="text-lg mb-4">
+                Ya sabes de qué hablo... Es ese marketing que te hace sentir como un número, persiguiendo métricas de vanidad, publicando sin alma, y quemándote en el proceso. Te esfuerzas, pero tu marca se siente invisible y genérica. ¿Te suena familiar?
+            </p>
+            <p class="text-lg">
+                La tecnología y la IA están aquí para ayudarte a salir de ese bucle, no para volverte una máquina sin vida. Tu pasión y tu <span class="font-bold">Vibe</span> son tu superpoder, y la automatización es tu arma secreta.
+            </p>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl mb-12 border border-principal">
+            <h2 class="font-titles text-3xl font-bold text-center mb-6 text-principal">La Solución: Tu Máquina de Contenido con Alma</h2>
+            <p class="text-lg text-center mb-6">
+                Hemos creado algo increíble para ti. Una automatización completa y lista para usar que te libera del tedio de crear contenido.
+            </p>
+            <ul class="space-y-4 text-lg">
+                <li class="flex items-center space-x-3">
+                    <span class="text-secundario text-3xl font-bold">1.</span>
+                    <p>
+                        <strong>La Receta Maestra:</strong> Te damos el <span class="font-bold">Master Prompt</span> exacto para que la IA entienda el "Vibe" de tu marca y hable con tu propia voz.
+                    </p>
+                </li>
+                <li class="flex items-center space-x-3">
+                    <span class="text-secundario text-3xl font-bold">2.</span>
+                    <p>
+                        <strong>El Cerebro del Flujo:</strong> Recibirás el flujo completo para <a href="#" class="text-secundario underline font-bold hover:text-principal">n8n</a>, la herramienta de automatización que conecta todo. ¡Solo tienes que copiar y pegar!
+                    </p>
+                </li>
+                <li class="flex items-center space-x-3">
+                    <span class="text-secundario text-3xl font-bold">3.</span>
+                    <p>
+                        <strong>Tu Co-piloto de IA:</strong> Te mostramos las configuraciones necesarias para que todo funcione a la perfección, generando ideas de contenido, títulos, descripciones, CTAs y guiones listos para usar.
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="text-center mb-12">
+            <h3 class="font-titles text-2xl sm:text-3xl font-bold text-principal mb-4">
+                ¿Listo para <span class="text-secundario">Activar tu Capa</span>? 🚀
+            </h3>
+            <p class="text-lg mb-6">
+                Descarga ahora mismo esta automatización y únete a un futuro donde el marketing es una invitación a pertenecer, no una batalla por la atención.
+            </p>
+
+            <!-- Lead Capture Form -->
+            <form id="leadForm" class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- Added Name Input Field -->
+                <input type="text" placeholder="Tu Nombre" required
+                       class="w-full sm:w-auto p-3 text-lg border-2 border-principal rounded-xl focus:outline-none focus:ring-2 focus:ring-secundario focus:border-secundario transition-all duration-300">
+                <input type="email" placeholder="Tu Email para activar la capa" required
+                       class="w-full sm:w-auto p-3 text-lg border-2 border-principal rounded-xl focus:outline-none focus:ring-2 focus:ring-secundario focus:border-secundario transition-all duration-300">
+                <button type="submit"
+                        class="w-full sm:w-auto px-8 py-3 text-lg font-bold text-principal bg-secundario rounded-xl shadow-lg hover:shadow-xl transform transition-transform duration-300 hover:scale-105">
+                    ¡Sí, Quiero Mi Oasis Digital!
+                </button>
+            </form>
+            <div id="successMessage" class="hidden mt-4 p-4 rounded-xl bg-secundario text-principal font-bold transition-all duration-300">
+                ¡Gracias! Revisa tu email para activar tu Capa 🚀
+            </div>
+        </section>
+
+        <!-- Brand Philosophy Section -->
+        <section class="text-center md:text-left p-6 sm:p-8 rounded-2xl border border-principal">
+            <h2 class="font-titles text-3xl font-bold mb-4 text-principal">Únete a El Escuadrón con Capa</h2>
+            <p class="text-lg mb-4">
+                No estás solo en esto. Emprendedores con Capa es tu copiloto, tu guía, tu aliado estratégico. Creemos en el método sagrado: **V.I.A.** (Vibe, Inteligencia y Automatización).
+            </p>
+            <p class="text-lg">
+                La meta no es solo tener un negocio, sino construir un mundo al que la gente quiera pertenecer. Un mundo donde la autenticidad es la métrica de éxito. ¿Qué dices, te unes a la tripulación?
+            </p>
+        </section>
+
+    </div>
+
+    <!-- Simple JavaScript for form submission (no actual logic) -->
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.remove('hidden');
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 5000); // Hide the message after 5 seconds
+            // In a real application, you would handle the form submission here,
+            // e.g., send data to a backend and show a success message or redirect.
+        });
+    </script>
+</body>
+</html>
