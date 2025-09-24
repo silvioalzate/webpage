@@ -13,9 +13,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
         :root {
             --color-principal: #2e4057;
-            --color-secundario: #fdf8f5;
-            --color-verde: #22c55e;
-            --color-naranja: #f7931e;
+            --color-secundario: #22c55e;
+            --color-blanco: #fdf8f5;
         }
 
         body {
@@ -26,7 +25,7 @@
         }
 
         .section-header {
-            color: var(--color-naranja);
+            color: var(--color-secundario);
             font-weight: 700;
         }
 
@@ -36,12 +35,12 @@
         }
 
         .nav-link:hover {
-            color: var(--color-naranja);
+            color: var(--color-secundario);
             transform: translateY(-2px);
         }
 
         .btn-primary {
-            background-color: var(--color-verde);
+            background-color: var(--color-secundario);
             color: var(--color-principal);
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
@@ -52,7 +51,7 @@
         }
 
         .btn-secondary {
-            background-color: var(--color-naranja);
+            background-color: var(--color-secundario);
             color: var(--color-principal);
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
@@ -70,7 +69,7 @@
         /* Estilo para la imagen generada, incluye un degradado de fondo */
         #generated-image-container {
             position: relative;
-            background: linear-gradient(to bottom right, var(--color-verde), var(--color-naranja));
+            background: linear-gradient(to bottom right, var(--color-primario), var(--color-secundario));
             min-height: 400px;
             display: flex;
             align-items: center;
@@ -100,7 +99,7 @@
             <div class="space-x-8 text-lg font-medium hidden md:flex">
                 <a href="#home" class="nav-link">Inicio</a>
                 <a href="#blog" class="nav-link">Blog</a>
-                <a href="#contact" class="nav-link">Contacto</a>
+                <a href="#boletin" class="nav-link">Boletín</a>
             </div>
         </div>
     </nav>
@@ -158,7 +157,7 @@
         </section>
 
         <!-- Sección de Contacto -->
-        <section id="contact" class="container mx-auto p-8 py-20 max-w-7xl">
+        <section id="boletin" class="container mx-auto p-8 py-20 max-w-10xl">
             <h2 class="text-4xl font-extrabold text-center mb-12 section-header">
                 Lleva tu Negocio al Siguiente Nivel
             </h2>
