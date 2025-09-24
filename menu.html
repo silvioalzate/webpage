@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links de Emprendedores con Capa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        .font-titles { font-family: 'Inter', sans-serif; }
+        .font-texts { font-family: 'Inter', sans-serif; }
+
+        :root {
+            --color-principal: #2e4057;
+            --color-secundario: #22c55e;
+            --color-acento: #fdf8f5;
+        }
+
+        .bg-principal { background-color: var(--color-principal); }
+        .text-principal { color: var(--color-principal); }
+        .bg-secundario { background-color: var(--color-secundario); }
+        .text-secundario { color: var(--color-secundario); }
+        .bg-acento { background-color: var(--color-acento); }
+        .text-acento { color: var(--color-acento); }
+    </style>
+</head>
+<body class="bg-acento font-texts antialiased text-principal flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-sm sm:max-w-md md:max-w-lg text-center">
+
+        <!-- Logo/Imagen de Perfil -->
+        <img src="emprendedores-con-capa.png" alt="Logo de Emprendedores con Capa" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto shadow-lg mb-4 sm:mb-6">
+
+        <!-- Título y Subtítulo -->
+        <h1 class="font-titles text-2xl sm:text-3xl font-extrabold text-principal mb-2">
+            Emprendedores con Capa
+        </h1>
+        <p class="text-sm sm:text-md text-principal opacity-80 mb-8 sm:mb-10">
+            Tu copiloto para despegar tu negocio.
+        </p>
+
+        <!-- Sección de Links Principales -->
+        <div class="flex flex-col space-y-4 sm:space-y-6">
+            <a href="https://silvioalzate.shop" target="_blank" class="w-full bg-principal text-acento p-4 rounded-xl shadow-lg hover:shadow-xl transform transition-transform duration-300 hover:scale-105 font-bold">
+                Página Web Oficial
+            </a>
+            <a href="https://silvioalzate.shop/generatecontent.html" target="_blank" class="w-full bg-secundario text-principal p-4 rounded-xl shadow-lg hover:shadow-xl transform transition-transform duration-300 hover:scale-105 font-bold">
+                Descarga tu Automatización ¡Gratis!
+            </a>
+        </div>
+
+        <!-- Íconos de Redes Sociales -->
+        <div class="mt-10 sm:mt-12 flex justify-center space-x-6">
+            <!-- Ícono de YouTube -->
+            <a href="https://www.youtube.com/@emprendedoresconcapa" target="_blank" class="text-principal hover:text-red-500 transform transition-transform duration-300 hover:scale-110">
+                <img class="w-10 h-10 sm:w-12 sm:h-12" src="youtube.svg">
+            </a>
+            <!-- Ícono de Telegram -->
+            <a href="https://t.me/emprendedoresconcapa" target="_blank" class="text-principal hover:text-blue-400 transform transition-transform duration-300 hover:scale-110">
+                <img class="w-10 h-10 sm:w-12 sm:h-12" src="telegram.svg">
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
