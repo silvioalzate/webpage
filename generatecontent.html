@@ -181,12 +181,41 @@
 
     <script>
         document.getElementById('sib-form').addEventListener('submit', function(event) {
+            // Evita el envío del formulario tradicional para manejarlo con JavaScript
             event.preventDefault();
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.remove('hidden');
-            setTimeout(() => {
-                successMessage.classList.add('hidden');
-            }, 5000); 
+
+            const form = event.target;
+            const actionUrl = form.action;
+
+            // Obtiene los datos del formulario
+            const formData = new FormData(form);
+            const body = new URLSearchParams(formData);
+
+            // Realiza el envío del formulario usando fetch
+            fetch(actionUrl, {
+                method: 'POST',
+                body: body,
+                mode: 'no-cors' // Usa 'no-cors' ya que el endpoint de Brevo puede no tener CORS habilitado
+            })
+            .then(response => {
+                // El formulario se envió correctamente
+                const successMessage = document.getElementById('successMessage');
+
+                // Muestra el mensaje de éxito
+                successMessage.classList.remove('hidden');
+
+                // Limpia los campos del formulario
+                form.reset();
+
+                // Oculta el mensaje de éxito después de 5 segundos
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000); 
+            })
+            .catch(error => {
+                console.error('Error al enviar el formulario:', error);
+                // Aquí podrías mostrar un mensaje de error si fuera necesario
+            });
         });
     </script>
 </body>
