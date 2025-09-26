@@ -162,7 +162,7 @@
             </h2>
             <div class="max-w-7xl mx-auto form p-8 rounded-xl shadow-2xl">
               <div id="sib-container" class="bg-transparent mx-auto max-w-7xl">
-                    <form id="sib-form" method="POST" action="https://72bcbc54.sibforms.com/serve/MUIFAOxBHXIspwtsRE00QjF9zvW_N06DOiArlsp031B_5oS41TxLwKKSS0hhZGCUhbsdCuw27xjRDAlXAY5z1ok5hEEbMke84SoGHG6SNkBCCCkY5vPbY1_BS87FQ6wRqQpwPZEfUjK-K4IcC-1GOWcDRbvWY7LUEWpU5wJTP3Oa1cYzGvZI9SD4pTS_0al-QS7uU8Nlj8fwP2Vm" data-type="subscription">
+                    <form id="sib-form" method="POST" action="https://72bcbc54.sibforms.com/serve/MUIFAOxsXKg5eZOwMA0e7V8YUmdOa1W3ZO_KQRR4swU-CFqVUV1Zp1NqM7fVfZqZSOGx5uA1Fi9MduxK9QNSRxoVfnELf7SI5gghut48FsdScLwLupToCHkOr0QVPcPFa_3I1AqfhpzYsiieVqDHeR8eCyfo_51i_58CVMvooigtsXtQNTo9F87UDzYlmN_u_t-lbyubm0Vle43C" data-type="subscription">
                         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
                             <div class="w-full">
                                 <label class="sr-only" for="FIRSTNAME">Introduce tu NOMBRE</label>
@@ -222,7 +222,7 @@
         });
 
         // Envío del formulario
-        document.getElementById('sib-form').addEventListener('submit', function(event) {
+         document.getElementById('sib-form').addEventListener('submit', function(event) {
             // Evita el envío del formulario tradicional para manejarlo con JavaScript
             event.preventDefault();
 
@@ -232,31 +232,33 @@
             // Obtiene los datos del formulario
             const formData = new FormData(form);
             const body = new URLSearchParams(formData);
-            const successMessage = document.getElementById('successMessage');
 
             // Realiza el envío del formulario usando fetch
             fetch(actionUrl, {
                 method: 'POST',
                 body: body,
-                mode: 'no-cors' // Se mantiene 'no-cors' para evitar problemas de CORS
+                mode: 'no-cors' // Usa 'no-cors' ya que el endpoint de Brevo puede no tener CORS habilitado
             })
-            .then(() => {
-                // Asume que el envío fue exitoso, ya que 'no-cors' no permite verificar la respuesta.
-                // Este bloque se ejecutará siempre que no haya un error de red.
+            .then(response => {
+                // El formulario se envió correctamente
+                const successMessage = document.getElementById('successMessage');
+
+                // Muestra el mensaje de éxito
                 successMessage.classList.remove('hidden');
+
+                // Limpia los campos del formulario
                 form.reset();
 
+                // Oculta el mensaje de éxito después de 5 segundos
                 setTimeout(() => {
                     successMessage.classList.add('hidden');
-                }, 5000);
+                }, 5000); 
             })
             .catch(error => {
-                // Este bloque solo se ejecutará si hay un error de red (por ejemplo, sin conexión).
                 console.error('Error al enviar el formulario:', error);
                 // Aquí podrías mostrar un mensaje de error si fuera necesario
             });
         });
-    });
 </script>
 </body>
 </html>
