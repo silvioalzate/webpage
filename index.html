@@ -209,34 +209,34 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.querySelector('nav');
-            const homeSection = document.getElementById('home');
-            const mainImage = document.getElementById('main-image');
+    document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.querySelector('nav');
+        const homeSection = document.getElementById('home');
+        const mainImage = document.getElementById('main-image');
 
-            // Cambiar el color de fondo de la barra de navegación al hacer scroll
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    nav.style.backgroundColor = 'var(--color-principal)';
-                    nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
-                } else {
-                    nav.style.backgroundColor = 'transparent';
-                    nav.style.boxShadow = 'none';
-                }
-            });
+        // Cambiar el color de fondo de la barra de navegación al hacer scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'var(--color-principal)';
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+            } else {
+                nav.style.backgroundColor = 'transparent';
+                nav.style.boxShadow = 'none';
+            }
+        });
 
-            // Script para el scroll suave
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        // Script para el scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
+        });
 
-            // Envío del formulario
-            document.getElementById('sib-form').addEventListener('submit', function(event) {
+        // Envío del formulario
+        document.getElementById('sib-form').addEventListener('submit', function(event) {
             // Evita el envío del formulario tradicional para manejarlo con JavaScript
             event.preventDefault();
 
@@ -246,33 +246,38 @@
             // Obtiene los datos del formulario
             const formData = new FormData(form);
             const body = new URLSearchParams(formData);
+            const successMessage = document.getElementById('successMessage');
+
+            // Muestra un mensaje de "cargando" si lo deseas
+            // loadingMessage.classList.remove('hidden');
 
             // Realiza el envío del formulario usando fetch
             fetch(actionUrl, {
                 method: 'POST',
-                body: body,
-                mode: 'no-cors' // Usa 'no-cors' ya que el endpoint de Brevo puede no tener CORS habilitado
+                body: body
             })
             .then(response => {
-                // El formulario se envió correctamente
-                const successMessage = document.getElementById('successMessage');
+                // Comprueba si la respuesta fue exitosa (código de estado 200-299)
+                if (response.ok) {
+                    // El formulario se envió correctamente
+                    successMessage.classList.remove('hidden');
+                    form.reset();
 
-                // Muestra el mensaje de éxito
-                successMessage.classList.remove('hidden');
-
-                // Limpia los campos del formulario
-                form.reset();
-
-                // Oculta el mensaje de éxito después de 5 segundos
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                }, 5000);
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    // La respuesta no fue exitosa
+                    throw new Error('El envío del formulario falló.');
+                }
             })
             .catch(error => {
                 console.error('Error al enviar el formulario:', error);
                 // Aquí podrías mostrar un mensaje de error si fuera necesario
+                // errorMessage.classList.remove('hidden');
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
