@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.svg" />
     <title>Silvio Alzate - Vibe Marketing & Automatizaciones</title>
-    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Definición de la paleta de colores y configuración de fuentes de Tailwind */
@@ -19,7 +18,7 @@
 
         body {
             font-family: 'Bricolage Grotesque', sans-serif;
-            color: var(--color-secundario);
+            color: var(--color-acento); /* corrected to use --color-acento for text */
             background-color: var(--color-principal);
             scroll-behavior: smooth;
         }
@@ -30,7 +29,7 @@
         }
 
         .nav-link {
-            color: var(--color-secundario);
+            color: var(--color-acento); /* corrected to use --color-acento for nav links */
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
@@ -74,7 +73,7 @@
         /* Estilo para la imagen generada, incluye un degradado de fondo */
         #generated-image-container {
             position: relative;
-            background: linear-gradient(to bottom right, var(--color-primario), var(--color-secundario));
+            background: linear-gradient(to bottom right, var(--color-principal), var(--color-secundario)); /* corrected to use --color-principal */
             min-height: 400px;
             display: flex;
             align-items: center;
@@ -101,7 +100,6 @@
 </head>
 <body class="bg-principal min-h-screen">
 
-    <!-- Barra de navegación fija -->
     <nav class="bg-azul fixed top-0 left-0 right-0 z-50 p-6 transition-colors duration-300">
         <div class="container mx-auto flex justify-between items-center max-w-7xl">
             <a href="#home" class="text-2xl font-bold text-blanco">Silvio Alzate</a>
@@ -114,15 +112,12 @@
     </nav>
 
     <main class="pt-24">
-        <!-- Sección de Inicio -->
         <section id="home" class="container mx-auto p-8 max-w-7xl">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                 <div class="flex-1 text-center lg:text-left">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-acento">
-                        El poder del <span class="text-verde">Vibe Marketing</span> y las <span class="text-verde">Automatizaciones</span>.
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-blanco"> El poder del <span class="text-verde">Vibe Marketing</span> y las <span class="text-verde">Automatizaciones</span>.
                     </h1>
-                    <p class="text-lg sm:text-xl text-acento mb-8">
-                        Ayudo a emprendedores y negocios a conectar con sus clientes de forma auténtica y a escalar sus operaciones con la tecnología.
+                    <p class="text-lg sm:text-xl text-blanco mb-8"> Ayudo a emprendedores y negocios a conectar con sus clientes de forma auténtica y a escalar sus operaciones con la tecnología.
                     </p>
                     <a href="#boletin" class="inline-block px-8 py-4 font-semibold rounded-lg btn-primary shadow-lg">
                         Lleva tu negocio al siguiente nivel
@@ -134,11 +129,9 @@
             </div>
         </section>
 
-        <!-- Sección de Blog -->
         <section id="blog" class="container mx-auto p-8 py-20 max-w-7xl">
             <h2 class="text-4xl font-extrabold text-center mb-12 section-header">Blog</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Artículo 1 -->
                 <article class="card p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <h3 class="text-2xl font-bold mb-3">Vibe Marketing: La clave del éxito en el mundo digital</h3>
                     <p class="text-gray-700 mb-4">Descubre cómo la autenticidad y la conexión emocional pueden transformar tu marca y fidelizar a tus clientes.</p>
@@ -146,7 +139,6 @@
                         Leer más
                     </a>
                 </article>
-                <!-- Artículo 2 -->
                 <article class="card p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <h3 class="text-2xl font-bold mb-3">Automatizaciones con n8n: Libera tu tiempo y escala tu negocio</h3>
                     <p class="text-gray-700 mb-4">Aprende a crear flujos de trabajo eficientes para tareas repetitivas y libera tiempo para lo que realmente importa: tu negocio.</p>
@@ -154,7 +146,6 @@
                         Leer más
                     </a>
                 </article>
-                <!-- Artículo 3 -->
                 <article class="card p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     <h3 class="text-2xl font-bold mb-3">Un funnel de Ventas que Vibra: Conexión y Conversión</h3>
                     <p class="text-gray-700 mb-4">Diseña un embudo de ventas que no solo convierte, sino que también resuena con la energía y valores de tu marca.</p>
@@ -165,14 +156,12 @@
             </div>
         </section>
 
-        <!-- Sección de Contacto -->
         <section id="boletin" class="container mx-auto p-8 py-20 max-w-7xl">
             <h2 class="text-4xl font-extrabold text-center mb-12 section-header">
                 Lleva tu Negocio al Siguiente Nivel
             </h2>
             <div class="max-w-7xl mx-auto form p-8 rounded-xl shadow-2xl">
-              <!-- Begin Brevo Form -->
-                <div id="sib-container" class="bg-transparent mx-auto max-w-7xl">
+              <div id="sib-container" class="bg-transparent mx-auto max-w-7xl">
                     <form id="sib-form" method="POST" action="https://72bcbc54.sibforms.com/serve/MUIFAKNR8tytCd2a71zt9YGwnA7DdNy_j1j5nCdYqFyhn9iHDKNlqWRS5DuIhil4YB0kA_YvCkRNGyMkhn9PlsnyPYWDuDE9Ok8LNWzUTbMVH8YUmEtVuWGobK6qCObO_6MSy3qGWQF8ZcbGGpM2YbrSfySNig6JkoKz9kOSO6xDXq-LsV_wTH10R1ZB-ueWFaymVSXRrlnN7j6o" data-type="subscription">
                         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
                             <div class="w-full">
@@ -191,10 +180,8 @@
                         </div>
                     </form>
                 </div>
-              </div>
             </div>
-<!-- End Brevo Form --></div>
-            <p class="text-blanco text-lg max-w-2xl mx-auto mt-8">
+<p class="text-blanco text-lg max-w-2xl mx-auto mt-8">
                 Al enviar el formulario aceptas la <a href="pivacy-policy.html" ><span class="text-verde">Política de Privacidad</span></a>
             </p>
             <div id="successMessage" class="hidden mt-4 p-4 rounded-xl bg-verde text-blanco font-bold transition-all duration-300">
@@ -203,7 +190,6 @@
         </section>
     </main>
 
-    <!-- Pie de página -->
     <footer class="text-center p-8 bg-principal text-secundario">
         <p>&copy; 2025 Silvio Alzate. Todos los derechos reservados.</p>
     </footer>
