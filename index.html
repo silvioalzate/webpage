@@ -208,7 +208,7 @@
         <p>&copy; 2025 Silvio Alzate. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
+   <script>
     document.addEventListener('DOMContentLoaded', () => {
         const nav = document.querySelector('nav');
         const homeSection = document.getElementById('home');
@@ -248,34 +248,26 @@
             const body = new URLSearchParams(formData);
             const successMessage = document.getElementById('successMessage');
 
-            // Muestra un mensaje de "cargando" si lo deseas
-            // loadingMessage.classList.remove('hidden');
-
             // Realiza el envío del formulario usando fetch
             fetch(actionUrl, {
                 method: 'POST',
                 body: body,
-                mode: 'no-cors' // Usa 'no-cors' ya que el endpoint de Brevo puede no tener CORS habilitado
+                mode: 'no-cors' // Se mantiene 'no-cors' para evitar problemas de CORS
             })
-            .then(response => {
-                // Comprueba si la respuesta fue exitosa (código de estado 200-299)
-                if (response.ok) {
-                    // El formulario se envió correctamente
-                    successMessage.classList.remove('hidden');
-                    form.reset();
+            .then(() => {
+                // Asume que el envío fue exitoso, ya que 'no-cors' no permite verificar la respuesta.
+                // Este bloque se ejecutará siempre que no haya un error de red.
+                successMessage.classList.remove('hidden');
+                form.reset();
 
-                    setTimeout(() => {
-                        successMessage.classList.add('hidden');
-                    }, 5000);
-                } else {
-                    // La respuesta no fue exitosa
-                    throw new Error('El envío del formulario falló.');
-                }
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
             })
             .catch(error => {
+                // Este bloque solo se ejecutará si hay un error de red (por ejemplo, sin conexión).
                 console.error('Error al enviar el formulario:', error);
                 // Aquí podrías mostrar un mensaje de error si fuera necesario
-                // errorMessage.classList.remove('hidden');
             });
         });
     });
