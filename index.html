@@ -222,7 +222,7 @@
         });
 
         // Envío del formulario
-         document.getElementById('sib-form').addEventListener('submit', function(event) {
+            document.getElementById('sib-form').addEventListener('submit', function(event) {
             // Evita el envío del formulario tradicional para manejarlo con JavaScript
             event.preventDefault();
 
@@ -232,33 +232,31 @@
             // Obtiene los datos del formulario
             const formData = new FormData(form);
             const body = new URLSearchParams(formData);
+            const successMessage = document.getElementById('successMessage');
 
             // Realiza el envío del formulario usando fetch
             fetch(actionUrl, {
                 method: 'POST',
                 body: body,
-                mode: 'no-cors' // Usa 'no-cors' ya que el endpoint de Brevo puede no tener CORS habilitado
+                mode: 'no-cors' // Se mantiene 'no-cors' para evitar problemas de CORS
             })
-            .then(response => {
-                // El formulario se envió correctamente
-                const successMessage = document.getElementById('successMessage');
-
-                // Muestra el mensaje de éxito
+            .then(() => {
+                // Asume que el envío fue exitoso, ya que 'no-cors' no permite verificar la respuesta.
+                // Este bloque se ejecutará siempre que no haya un error de red.
                 successMessage.classList.remove('hidden');
-
-                // Limpia los campos del formulario
                 form.reset();
 
-                // Oculta el mensaje de éxito después de 5 segundos
                 setTimeout(() => {
                     successMessage.classList.add('hidden');
-                }, 5000); 
+                }, 5000);
             })
             .catch(error => {
+                // Este bloque solo se ejecutará si hay un error de red (por ejemplo, sin conexión).
                 console.error('Error al enviar el formulario:', error);
                 // Aquí podrías mostrar un mensaje de error si fuera necesario
             });
         });
+    });
 </script>
 </body>
 </html>
