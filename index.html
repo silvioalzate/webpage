@@ -254,7 +254,8 @@
             // Realiza el envío del formulario usando fetch
             fetch(actionUrl, {
                 method: 'POST',
-                body: body
+                body: body,
+                mode: 'no-cors' // Usa 'no-cors' ya que el endpoint de Brevo puede no tener CORS habilitado
             })
             .then(response => {
                 // Comprueba si la respuesta fue exitosa (código de estado 200-299)
